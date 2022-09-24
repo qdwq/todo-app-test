@@ -6,6 +6,7 @@
 
 namespace App\Service;
 
+use App\Service\TaskServiceInterface;
 use App\Entity\Galleries;
 use App\Repository\GalleriesRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -15,7 +16,7 @@ use Knp\Component\Pager\PaginatorInterface;
 /**
  * Class GalleriesService.
  */
-class GalleriesService
+class GalleriesService implements TaskServiceInterface
 {
     /**
      * Galleries repository.
@@ -59,7 +60,6 @@ class GalleriesService
      * Save Galleries.
      *
      * @param Galleries $galleries Galleries entity
-     *
      */
     public function save(Galleries $galleries): void
     {
@@ -70,7 +70,6 @@ class GalleriesService
      * Delete Galleries.
      *
      * @param Galleries $galleries Galleries entity
-     *
      */
     public function delete(Galleries $galleries): void
     {
@@ -78,6 +77,9 @@ class GalleriesService
     }
 
     /**
+     * @param int $id
+     *
+     * @return Galleries|null
      *
      * @throws NonUniqueResultException
      */

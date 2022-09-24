@@ -4,44 +4,44 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="187" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/UserController.php" />
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Repository/UserRepository.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="144" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/PhotosController.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="255" />
+          <option name="caretOffset" value="535" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/CommentsController.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="1024" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/UserService.php" />
+          <option name="caretOffset" value="401" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/GalleriesService.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="1078" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/PhotosService.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="1289" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/CommentsService.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="180" />
+          <option name="caretOffset" value="2095" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Comments.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="183" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/HomeController.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="1167" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/SecurityController.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="302" />
+          <option name="caretOffset" value="796" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="172" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/PhotosService.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="62" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/FileUploader.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="60" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/UserService.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="477" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/CommentsService.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="89" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/TaskServiceInterface.php" />
         </OpenedFileInfo>
       </list>
     </option>

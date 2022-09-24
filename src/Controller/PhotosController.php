@@ -9,6 +9,7 @@ namespace App\Controller;
 use App\Entity\Photos;
 use App\Form\PhotosType;
 use App\Service\PhotosService;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,6 +26,8 @@ class PhotosController extends AbstractController
 
     /**
      * PhotosController constructor.
+     *
+     * @param PhotosService $photosService Photos service
      */
     public function __construct(PhotosService $photosService)
     {
@@ -33,6 +36,10 @@ class PhotosController extends AbstractController
 
     /**
      * Index_action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP Response
      *
      * @Route(
      *     "/",
@@ -56,6 +63,8 @@ class PhotosController extends AbstractController
      *
      * @param int $id id
      *
+     * @return Response HTTP Response
+     *
      * @Route(
      *     "/{id}",
      *     methods={"GET"},
@@ -63,6 +72,7 @@ class PhotosController extends AbstractController
      *     requirements={"id": "[1-9]\d*"},
      * )
      *
+     * @throws NonUniqueResultException
      */
     public function show(int $id): Response
     {
@@ -76,6 +86,10 @@ class PhotosController extends AbstractController
 
     /**
      * Create action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/create",
@@ -111,13 +125,14 @@ class PhotosController extends AbstractController
      * @param Request $request HTTP request
      * @param Photos  $photos  Photos entity
      *
+     * @return Response HTTP response
+     *
      * @Route(
      *     "/{id}/edit",
      *     methods={"GET", "PUT"},
      *     requirements={"id": "[1-9]\d*"},
      *     name="Photos_edit",
      * )
-     *
      */
     public function edit(Request $request, Photos $photos): Response
     {
@@ -148,6 +163,7 @@ class PhotosController extends AbstractController
      * @param Request $request HTTP request
      * @param Photos  $photos  Photos entity
      *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/{id}/delete",

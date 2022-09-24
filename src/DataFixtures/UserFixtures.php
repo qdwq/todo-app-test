@@ -17,8 +17,6 @@ class UserFixtures extends AbstractBaseFixtures
 {
     /**
      * Password encoder.
-     *
-     * @var UserPasswordEncoderInterface
      */
     private UserPasswordEncoderInterface $passwordEncoder;
 
@@ -39,7 +37,6 @@ class UserFixtures extends AbstractBaseFixtures
      */
     public function loadData(ObjectManager $manager): void
     {
-
         $this->createMany(1, 'admins', function ($i) {
             $user = new User();
             $user->setEmail(sprintf('admin%d@example.com', $i));

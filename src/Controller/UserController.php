@@ -8,8 +8,6 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\Service\UserService;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +22,9 @@ class UserController extends AbstractController
     private UserService $userService;
 
     /**
-     * PhotosController constructor.
+     * UserController constructor.
+     *
+     * @param UserService $userService User service
      */
     public function __construct(UserService $userService)
     {
@@ -34,8 +34,9 @@ class UserController extends AbstractController
     /**
      * Edit action.
      *
-     * @throws ORMException
-     * @throws OptimisticLockException
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/admin/user/edit",

@@ -67,6 +67,8 @@ class GalleriesRepository extends ServiceEntityRepository
 
     /**
      * Query all records.
+     *
+     * @return QueryBuilder
      */
     public function queryAll(): QueryBuilder
     {
@@ -76,6 +78,10 @@ class GalleriesRepository extends ServiceEntityRepository
 
     /**
      * Get or create new query builder.
+     *
+     * @param int|null $id
+     *
+     * @return float|int|mixed|string|null
      *
      * @throws NonUniqueResultException
      */

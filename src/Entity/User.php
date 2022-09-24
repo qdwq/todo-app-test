@@ -1,10 +1,12 @@
 <?php
+
 /**
  * User entity.
  */
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -43,8 +45,6 @@ class User implements UserInterface
     /**
      * Primary key.
      *
-     * @var int
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(
@@ -59,8 +59,6 @@ class User implements UserInterface
     /**
      * E-mail.
      *
-     * @var string
-     *
      * @ORM\Column(
      *     type="string",
      *     length=180,
@@ -73,25 +71,19 @@ class User implements UserInterface
     private ?string $email;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $firstName = '';
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private ?string $lastName = '';
 
     /**
-     * @var \DateTime
-     *
      * @ORM\Column(type="date", nullable=true)
      */
-    private ?\DateTime $birthYear = null;
+    private ?DateTime $birthYear = null;
 
     /**
      * Roles.
@@ -103,11 +95,10 @@ class User implements UserInterface
     /**
      * The hashed password.
      *
-     * @var string
-     *
      * @ORM\Column(type="string")
-
+     *
      * @Assert\NotBlank
+     *
      * @Assert\Type(type="string")
      */
     private ?string $password;
@@ -183,9 +174,9 @@ class User implements UserInterface
     /**
      * Getter for the Password.
      *
-     * @see UserInterface
+     * @return string Password
      *
-     * @return string|null Password
+     * @see UserInterface
      */
     public function getPassword(): string
     {
@@ -202,32 +193,56 @@ class User implements UserInterface
         $this->password = $password;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): string
     {
         return (string) $this->firstName;
     }
 
+    /**
+     * @param string|null $firstName
+     *
+     * @return void
+     */
     public function setFirstName(?string $firstName): void
     {
         $this->firstName = (string) $firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): string
     {
         return (string) $this->lastName;
     }
 
+    /**
+     * @param string|null $lastName
+     *
+     * @return void
+     */
     public function setLastName(?string $lastName): void
     {
         $this->lastName = (string) $lastName;
     }
 
-    public function getBirthYear(): ?\DateTime
+    /**
+     * @return DateTime|null
+     */
+    public function getBirthYear(): ?DateTime
     {
         return $this->birthYear;
     }
 
-    public function setBirthYear(?\DateTime $birthYear): void
+    /**
+     * @param DateTime|null $birthYear
+     *
+     * @return void
+     */
+    public function setBirthYear(?DateTime $birthYear): void
     {
         $this->birthYear = $birthYear;
     }

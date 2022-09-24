@@ -43,6 +43,10 @@ class CommentsController extends AbstractController
     /**
      * Index action.
      *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     *
      * @Route(
      *     "/",
      *     methods={"GET"},
@@ -61,6 +65,10 @@ class CommentsController extends AbstractController
 
     /**
      * Show action.
+     *
+     * @param Comments $comments Comments entity
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/{id}",
@@ -81,16 +89,19 @@ class CommentsController extends AbstractController
     /**
      * Create action.
      *
+     * @param Request $request HTTP request
+     * @param int     $photoId PhotoId
+     *
+     * @return Response HTTP response
+     *
+     * @throws ORMException
+     * @throws OptimisticLockException
+     *
      * @Route(
      *     "/create/{photoId}/photo",
      *     methods={"GET", "POST"},
      *     name="Comments_create",
      * )
-     *
-     * @param int $photoId PhotoId
-     *
-     * @throws ORMException
-     * @throws OptimisticLockException
      */
     public function create(Request $request, int $photoId): Response
     {

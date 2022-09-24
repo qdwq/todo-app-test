@@ -222,9 +222,29 @@
                 <source>message_created_successfully</source>
                 <target>Pomyślnie dodano</target>
             </trans-unit>
-            <trans-unit id="invalid_message">
+            <trans-unit id="46">
                 <source>invalid_message</source>
                 <target>Hasła muszą się zgadzać</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>Year</source>
+                <target>Rok</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Month</source>
+                <target>Miesiąc</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>Day</source>
+                <target>Dzień</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Email could not be found.</source>
+                <target>Nieprawidłowy email</target>
+            </trans-unit>
+            <trans-unit id="title_Photos_details">
+                <source>title_Photos_details</source>
+                <target>Photo details</target>
             </trans-unit>
         </body>
     </file>

@@ -210,6 +210,34 @@
                 <source>message_created_successfully</source>
                 <target>Created successfully</target>
             </trans-unit>
+            <trans-unit id="46">
+                <source>invalid_message</source>
+                <target>Passwords must match</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>Year</source>
+                <target>Year</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Month</source>
+                <target>Month</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>Day</source>
+                <target>Day</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Email could not be found.</source>
+                <target>Email could not be found.</target>
+            </trans-unit>
+            <trans-unit id="label_view">
+                <source>label_view</source>
+                <target>Widok</target>
+            </trans-unit>
+            <trans-unit id="title_Photos_details">
+                <source>title_Photos_details</source>
+                <target>Szczegóły zdjęcia</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

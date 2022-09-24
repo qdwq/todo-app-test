@@ -6,10 +6,14 @@
 
 namespace App\Entity;
 
+use App\Repository\PhotosRepository;
 use DateTime;
 use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Photos.
@@ -35,7 +39,7 @@ class Photos
      *
      * @Gedmo\Timestampable(on="create")
      */
-    private ?DateTimeInterface $createdAt;
+    private DateTimeInterface $createdAt;
 
     /**
      * Updated at.
@@ -90,12 +94,12 @@ class Photos
      *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
      * })
      */
-    private $gallery;
+    private ?Galleries $gallery;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="photos", cascade={"remove"})
      */
-    private $comments;
+    private ?object $comments;
 
     /**
      * Photos constructor.
@@ -196,21 +200,37 @@ class Photos
         $this->text = $text;
     }
 
+    /**
+     * @return Galleries|null
+     */
     public function getGalleries(): ?Galleries
     {
         return $this->gallery;
     }
 
+    /**
+     * @param Galleries|null $gallery
+     *
+     * @return void
+     */
     public function setGalleries(?Galleries $gallery): void
     {
         $this->gallery = $gallery;
     }
 
+    /**
+     * @return string
+     */
     public function getFilename(): string
     {
         return (string) $this->filename;
     }
 
+    /**
+     * @param string $filename
+     *
+     * @return void
+     */
     public function setFilename(string $filename): void
     {
         $this->filename = $filename;
@@ -225,6 +245,8 @@ class Photos
     }
 
     /**
+     * @param Comments $comment
+     *
      * @return $this
      */
     public function addComment(Comments $comment): self
@@ -238,6 +260,8 @@ class Photos
     }
 
     /**
+     * @param Comments $comment
+     *
      * @return $this
      */
     public function removeComment(Comments $comment): self

@@ -17,6 +17,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class GalleriesController.
+ *
+ * @Route ("/Galleries")
  */
 class GalleriesController extends AbstractController
 {
@@ -24,6 +26,8 @@ class GalleriesController extends AbstractController
 
     /**
      * GalleriesController constructor.
+     *
+     * @param GalleriesService $galleriesService Galleries service
      */
     public function __construct(GalleriesService $galleriesService)
     {
@@ -32,6 +36,10 @@ class GalleriesController extends AbstractController
 
     /**
      * Index action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/",
@@ -52,14 +60,16 @@ class GalleriesController extends AbstractController
     /**
      * Show action.
      *
+     * @param int $id id
+     *
+     * @return Response HTTP response
+     *
      * @Route(
      *     "/{id}",
      *     methods={"GET"},
      *     name="Galleries_show",
      *     requirements={"id": "[1-9]\d*"},
      * )
-     *
-     * @param int $id id
      *
      * @throws NonUniqueResultException
      */
@@ -76,6 +86,9 @@ class GalleriesController extends AbstractController
     /**
      * Create action.
      *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/create",
@@ -107,6 +120,10 @@ class GalleriesController extends AbstractController
     /**
      * Edit action.
      *
+     * @param Request   $request   HTTP request
+     * @param Galleries $galleries Galleries entity
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/{id}/edit",
@@ -141,6 +158,10 @@ class GalleriesController extends AbstractController
     /**
      * Delete action.
      *
+     * @param Request   $request   HTTP request
+     * @param Galleries $galleries Galleries entity
+     *
+     * @return Response HTTP response
      *
      * @Route(
      *     "/{id}/delete",

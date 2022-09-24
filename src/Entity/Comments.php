@@ -6,8 +6,8 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentsRepository;
-use Doctrine\ORM\Mapping as ORM;
+//use App\Repository\CommentsRepository;
+//use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**

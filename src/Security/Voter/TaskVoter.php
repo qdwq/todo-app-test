@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @property Security $security
+ * Class TaskVoter.
  */
 class TaskVoter extends Voter
 {
@@ -18,11 +18,24 @@ class TaskVoter extends Voter
     public const VIEW = 'view';
     public const DELETE = 'delete';
 
+    /**
+     * construct method.
+     *
+     * @param Security $security
+     */
     public function __construct(Security $security)
     {
         $this->security = $security;
     }
 
+    /**
+     * support function.
+     *
+     * @param $attribute
+     * @param $subject
+     *
+     * @return bool
+     */
     protected function supports($attribute, $subject): bool
     {
         // replace with your own logic
@@ -31,6 +44,15 @@ class TaskVoter extends Voter
 //            && $subject instanceof \App\Entity\Comments;
     }
 
+    /**
+     * voteOnAttribute.
+     *
+     * @param $attribute
+     * @param $subject
+     * @param TokenInterface $token
+     *
+     * @return bool
+     */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token): bool
     {
         $user = $token->getUser();
@@ -39,9 +61,7 @@ class TaskVoter extends Voter
             return false;
         }
 
-        if (
-            in_array('ROLE_ADMIN', $user->getRoles()) ||
-            ((self::CREATE == $attribute) && ($subject instanceof Comments))
+        if (in_array('ROLE_ADMIN', $user->getRoles()) || ((self::CREATE == $attribute) && ($subject instanceof Comments))
         ) {
             return true;
         }

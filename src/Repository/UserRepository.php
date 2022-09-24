@@ -1,4 +1,5 @@
 <?php
+
 /**
  * User repository.
  */
@@ -22,6 +23,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 {
     /**
      * UserRepository constructor.
+     *
      * @param ManagerRegistry $registry Registry
      */
     public function __construct(ManagerRegistry $registry)
@@ -35,14 +37,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * @param UserInterface $user               User
      * @param string        $newEncodedPassword NewEncodedPassword
-     *
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function upgradePassword(UserInterface $user, string $newEncodedPassword): void
     {
         if (!$user instanceof User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
+            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
         $user->setPassword($newEncodedPassword);
         $this->_em->persist($user);
@@ -52,10 +51,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Save record.
      *
-     * @param \App\Entity\User $user Photos entity
-     *
-     * @throws \Doctrine\ORM\ORMException
-     * @throws \Doctrine\ORM\OptimisticLockException
+     * @param User $user Photos entity
      */
     public function save(User $user): void
     {

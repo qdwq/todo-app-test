@@ -68,13 +68,12 @@ abstract class AbstractBaseFixtures extends Fixture
             $entity = $factory($i);
 
             if (null === $entity) {
-                throw new LogicException('Did you forget to return the entity object from your callback
-                 to BaseFixture::createMany()?');
+                throw new LogicException('Did you forget to return the entity object from your callback to BaseFixture::createMany()?');
             }
 
             $this->manager->persist($entity);
 
-            // store for usage later than groupName_#COUNT#
+            // store for usage later as groupName_#COUNT#
             $this->addReference(sprintf('%s_%d', $groupName, $i), $entity);
         }
     }

@@ -8,8 +8,6 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use Doctrine\ORM\OptimisticLockException;
-use Doctrine\ORM\ORMException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
@@ -34,11 +32,10 @@ class UserService
     }
 
     /**
-     * @param User $user
-     * @param string|null $plainPassword
+     * Save.
      *
-     * @throws ORMException
-     * @throws OptimisticLockException
+     * @param User        $user
+     * @param string|null $plainPassword
      */
     public function save(User $user, ?string $plainPassword): void
     {

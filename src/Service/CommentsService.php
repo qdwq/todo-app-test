@@ -6,6 +6,7 @@
 
 namespace App\Service;
 
+use App\Service\TaskServiceInterface;
 use App\Entity\Comments;
 use App\Repository\CommentsRepository;
 use Doctrine\ORM\OptimisticLockException;
@@ -15,8 +16,11 @@ use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * Class CommentsService.
+ *
+ * @param $commentsRepository
+ * @param $paginator
  */
-class CommentsService
+class CommentsService implements TaskServiceInterface
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
@@ -26,6 +30,9 @@ class CommentsService
 
     /**
      * CommentsService constructor.
+     *
+     * @param CommentsRepository $commentsRepository
+     * @param PaginatorInterface $paginator
      */
     public function __construct(CommentsRepository $commentsRepository, PaginatorInterface $paginator)
     {
@@ -33,6 +40,11 @@ class CommentsService
         $this->paginator = $paginator;
     }
 
+    /**
+     * @param int $page
+     *
+     * @return PaginationInterface
+     */
     public function createPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
@@ -43,6 +55,8 @@ class CommentsService
     }
 
     /**
+     * @param Comments $comment
+     *
      * @throws OptimisticLockException
      * @throws ORMException
      */
@@ -52,6 +66,8 @@ class CommentsService
     }
 
     /**
+     * @param Comments $comment
+     *
      * @throws ORMException
      * @throws OptimisticLockException
      */

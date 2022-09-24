@@ -6,8 +6,13 @@
 
 namespace App\Entity;
 
+use App\Repository\GalleriesRepository;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Galleries.
@@ -20,8 +25,6 @@ class Galleries
     /**
      * Primary key.
      *
-     * @var int|null
-     *
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -30,8 +33,6 @@ class Galleries
 
     /**
      * Created at.
-     *
-     * @var DateTimeInterface|null
      *
      * @ORM\Column(type="datetime")
      *
@@ -43,8 +44,6 @@ class Galleries
 
     /**
      * Updated at.
-     *
-     * @var DateTimeInterface|null
      *
      * @ORM\Column(type="datetime")
      *
@@ -79,8 +78,6 @@ class Galleries
     /**
      * Code.
      *
-     * @var string|null
-     *
      * @ORM\Column(
      *     type="string",
      *     length=64,
@@ -101,9 +98,14 @@ class Galleries
      */
     public function __construct()
     {
-//        $this->photos = new ArrayCollection();
+        $this->photos = new ArrayCollection();
     }
 
+    /**
+     * Get Id.
+     *
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
@@ -169,6 +171,11 @@ class Galleries
         $this->title = $title;
     }
 
+    /**
+     * Get Photos.
+     *
+     * @return Collection
+     */
     public function getPhotos(): Collection
     {
         return $this->photos;
@@ -198,12 +205,19 @@ class Galleries
         }
     }
 
+    /**
+     * Get Code.
+     *
+     * @return string|null
+     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
     /**
+     * @param string $code
+     *
      * @return $this
      */
     public function setCode(string $code): self

@@ -19,7 +19,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Photos|null findOneBy(array $criteria, array $orderBy = null)
  * @method Photos[]    findAll()
  * @method Photos[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- * @method findOneById(int $id)
+ * @method             findOneById(int $id)
  */
 class PhotosRepository extends ServiceEntityRepository
 {
@@ -45,6 +45,8 @@ class PhotosRepository extends ServiceEntityRepository
 
     /**
      * Query all records.
+     *
+     * @return QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
@@ -52,7 +54,14 @@ class PhotosRepository extends ServiceEntityRepository
             ->orderBy('Photos.updatedAt', 'DESC');
     }
 
-    public function getOneWithComments(int $id)
+    /**
+     * @param int $id
+     *
+     * @return Photos|null
+     *
+     * @throws NonUniqueResultException
+     */
+    public function getOneWithComments(int $id): ?Photos
     {
         $qb = $this->createQueryBuilder('Photos')
             ->select('Photos', 'comments')
@@ -61,26 +70,36 @@ class PhotosRepository extends ServiceEntityRepository
             ->setParameter('id', $id)
         ;
 
-        try {
-            return $qb->getQuery()->getOneOrNullResult();
-        } catch (NonUniqueResultException) {
-        }
-
-        return 0;
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
+    /**
+     * Save record.
+     *
+     * @param Photos $photos Photos entity
+     */
     public function save(Photos $photos): void
     {
         $this->_em->persist($photos);
         $this->_em->flush();
     }
 
+    /**
+     * Delete record.
+     *
+     * @param Photos $photos Photos entity
+     */
     public function delete(Photos $photos): void
     {
         $this->_em->remove($photos);
         $this->_em->flush();
     }
 
+    /**
+     * Get or create new query builder.
+     *
+     * @return QueryBuilder Query builder
+     */
     private function getOrCreateQueryBuilder(): QueryBuilder
     {
         return null ?? $this->createQueryBuilder('Photos');

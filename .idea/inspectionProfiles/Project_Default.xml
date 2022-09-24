@@ -10,6 +10,5 @@
       <option name="CUSTOM_RULESET_PATH" value="$PROJECT_DIR$/phpcs.xml.dist" />
       <option name="EXTENSIONS" value="php,js,css,inc" />
     </inspection_tool>
-    <inspection_tool class="PhpMissingFieldTypeInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
   </profile>
 </component>
