@@ -36,7 +36,7 @@ class PhotosRepository extends ServiceEntityRepository
     /**
      * PhotosRepository constructor.
      *
-     * @param ManagerRegistry $registry Manager registry
+     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -76,7 +76,7 @@ class PhotosRepository extends ServiceEntityRepository
     /**
      * Save record.
      *
-     * @param Photos $photos Photos entity
+     * @param Photos $photos
      */
     public function save(Photos $photos): void
     {
@@ -87,7 +87,7 @@ class PhotosRepository extends ServiceEntityRepository
     /**
      * Delete record.
      *
-     * @param Photos $photos Photos entity
+     * @param Photos $photos
      */
     public function delete(Photos $photos): void
     {

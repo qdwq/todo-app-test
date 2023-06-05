@@ -36,7 +36,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * GalleriesRepository constructor.
      *
-     * @param ManagerRegistry $registry Manager registry
+     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -46,7 +46,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * Save record.
      *
-     * @param Galleries $galleries Galleries entity
+     * @param Galleries $galleries
      */
     public function save(Galleries $galleries): void
     {
@@ -57,7 +57,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * Delete record.
      *
-     * @param Galleries $galleries Galleries entity
+     * @param Galleries $galleries
      */
     public function delete(Galleries $galleries): void
     {

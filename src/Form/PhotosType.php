@@ -59,6 +59,7 @@ class PhotosType extends AbstractType
             TextType::class,
             [
                 'label' => 'label_title',
+                'empty_data' => '',
                 'required' => true,
                 'attr' => ['max_length => 255'],
             ]

@@ -75,6 +75,11 @@ class Galleries
      */
     private Collection $photos;
 
+    public function getPhotos(): ?Collection
+    {
+        return $this->photos;
+    }
+
     /**
      * Code.
      *
@@ -169,40 +174,6 @@ class Galleries
     public function setTitle(?string $title): void
     {
         $this->title = $title;
-    }
-
-    /**
-     * Get Photos.
-     *
-     * @return Collection
-     */
-    public function getPhotos(): Collection
-    {
-        return $this->photos;
-    }
-
-    /**
-     * @param Photos $photos Photos
-     */
-    public function addPhotos(Photos $photos): void
-    {
-        if (!$this->photos->contains($photos)) {
-            $this->photos[] = $photos;
-            $photos->setGalleries($this);
-        }
-    }
-
-    /**
-     * @param Photos $photos Photos
-     */
-    public function removePhotos(Photos $photos): void
-    {
-        if ($this->photos->contains($photos)) {
-            $this->photos->remove($photos);
-            if ($photos->getGalleries() === $this) {
-                $photos->setGalleries(null);
-            }
-        }
     }
 
     /**

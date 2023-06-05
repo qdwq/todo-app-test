@@ -4,44 +4,40 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Repository/UserRepository.php" />
+          <option name="caretOffset" value="8902" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/translations/messages.en.xlf" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="535" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/CommentsController.php" />
+          <option name="caretOffset" value="9311" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/translations/messages.pl.xlf" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="401" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/GalleriesService.php" />
+          <option name="caretOffset" value="223" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/security/login.html.twig" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="2095" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Comments.php" />
+          <option name="caretOffset" value="48" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/translations/security.pl.yaml" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="796" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" />
+          <option name="caretOffset" value="4768" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="172" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/PhotosService.php" />
+          <option name="caretOffset" value="1652" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Galleries.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="62" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/FileUploader.php" />
+          <option name="caretOffset" value="1124" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/Galleries/show.html.twig" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="60" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/UserService.php" />
+          <option name="caretOffset" value="1842" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Photos.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="477" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/CommentsService.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="89" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/TaskServiceInterface.php" />
+          <option name="caretOffset" value="686" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/composer.json" />
         </OpenedFileInfo>
       </list>
     </option>
