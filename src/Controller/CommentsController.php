@@ -152,7 +152,7 @@ class CommentsController extends AbstractController
      *     name="Comments_delete",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, Comments $comments): Response
     {
         $form = $this->createForm(FormType::class, $comments, ['method' => 'DELETE']);

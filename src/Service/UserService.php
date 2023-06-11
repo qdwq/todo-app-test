@@ -33,7 +33,6 @@ class UserService
 
     /**
      * Save.
-     *
      * @param User        $user
      * @param string|null $plainPassword
      */

@@ -99,7 +99,7 @@ class PhotosController extends AbstractController
      *     name="photos_create",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response
     {
         $photos = new Photos();
@@ -135,7 +135,7 @@ class PhotosController extends AbstractController
      *     name="Photos_edit",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function edit(Request $request, Photos $photos): Response
     {
         $form = $this->createForm(PhotosType::class, $photos, ['method' => 'PUT', 'required' => false]);
@@ -173,7 +173,7 @@ class PhotosController extends AbstractController
      *     name="Photos_delete",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, Photos $photos): Response
     {
         $form = $this->createForm(FormType::class, $photos, ['method' => 'DELETE']);

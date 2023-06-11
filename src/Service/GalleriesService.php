@@ -6,7 +6,6 @@
 
 namespace App\Service;
 
-use App\Service\TaskServiceInterface;
 use App\Entity\Galleries;
 use App\Repository\GalleriesRepository;
 use Doctrine\ORM\NonUniqueResultException;
@@ -79,9 +78,9 @@ class GalleriesService implements TaskServiceInterface
     /**
      * @param int $id
      *
-     * @return Galleries|null
-     *
      * @throws NonUniqueResultException
+     *
+     * @return ?Galleries
      */
     public function getOneWithPhotos(int $id): ?Galleries
     {

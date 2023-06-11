@@ -19,7 +19,9 @@ class Comments
 
     /**
      * @ORM\Id
+     *
      * @ORM\GeneratedValue
+     *
      * @ORM\Column(type="integer")
      */
     private ?int $id = null;
@@ -41,7 +43,9 @@ class Comments
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Photos", inversedBy="comments")
+     *
      * @ORM\JoinColumns({
+     *
      *   @ORM\JoinColumn(name="photos_id", referencedColumnName="id")
      * })
      */

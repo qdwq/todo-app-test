@@ -7,7 +7,6 @@
 namespace App\Entity;
 
 use App\Repository\GalleriesRepository;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class Galleries.
  *
  * @ORM\Entity(repositoryClass=GalleriesRepository::class)
+ *
  * @ORM\Table (name="Galleries")
  */
 class Galleries
@@ -26,7 +26,9 @@ class Galleries
      * Primary key.
      *
      * @ORM\Id
+     *
      * @ORM\GeneratedValue
+     *
      * @ORM\Column(type="integer")
      */
     private ?int $id = null;
@@ -40,7 +42,7 @@ class Galleries
      *
      * @Gedmo\Timestampable(on="create")
      */
-    private ?DateTimeInterface $createdAt;
+    private ?\DateTimeInterface $createdAt;
 
     /**
      * Updated at.
@@ -51,7 +53,7 @@ class Galleries
      *
      * @Gedmo\Timestampable(on="update")
      */
-    private ?DateTimeInterface $updatedAt;
+    private ?\DateTimeInterface $updatedAt;
 
     /**
      * Title.
@@ -59,7 +61,9 @@ class Galleries
      * @ORM\Column(type="string", length=64)
      *
      * @Assert\Type(type="string")
+     *
      * @Assert\NotBlank
+     *
      * @Assert\Length(
      *     min="3",
      *     max="64",
@@ -75,6 +79,9 @@ class Galleries
      */
     private Collection $photos;
 
+    /**
+     * @return Collection|null
+     */
     public function getPhotos(): ?Collection
     {
         return $this->photos;
@@ -89,6 +96,7 @@ class Galleries
      * )
      *
      * @Assert\Type(type="string")
+     *
      * @Assert\Length(
      *     min="3",
      *     max="64",
@@ -108,8 +116,7 @@ class Galleries
 
     /**
      * Get Id.
-     *
-     * @return int|null
+     * @return ?int
      */
     public function getId(): ?int
     {
@@ -119,9 +126,9 @@ class Galleries
     /**
      * Getter for Created At.
      *
-     * @return DateTimeInterface|null Created at
+     * @return \DateTimeInterface|null Created at
      */
-    public function getCreatedAt(): ?DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -129,9 +136,9 @@ class Galleries
     /**
      * Setter for Created at.
      *
-     * @param DateTimeInterface $createdAt Created at
+     * @param \DateTimeInterface $createdAt Created at
      */
-    public function setCreatedAt(DateTimeInterface $createdAt): void
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -139,9 +146,9 @@ class Galleries
     /**
      * Getter for Updated at.
      *
-     * @return DateTimeInterface|null Updated at
+     * @return \DateTimeInterface|null Updated at
      */
-    public function getUpdatedAt(): ?DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -149,9 +156,9 @@ class Galleries
     /**
      * Setter for Updated at.
      *
-     * @param DateTimeInterface $updatedAt Updated at
+     * @param \DateTimeInterface $updatedAt Updated at
      */
-    public function setUpdatedAt(DateTimeInterface $updatedAt): void
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
@@ -179,7 +186,7 @@ class Galleries
     /**
      * Get Code.
      *
-     * @return string|null
+     * @return ?string
      */
     public function getCode(): ?string
     {

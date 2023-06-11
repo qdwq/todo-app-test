@@ -6,7 +6,6 @@
 
 namespace App\Service;
 
-use App\Service\TaskServiceInterface;
 use App\Entity\Comments;
 use App\Repository\CommentsRepository;
 use Doctrine\ORM\OptimisticLockException;
@@ -30,7 +29,6 @@ class CommentsService implements TaskServiceInterface
 
     /**
      * CommentsService constructor.
-     *
      * @param CommentsRepository $commentsRepository
      * @param PaginatorInterface $paginator
      */
@@ -59,6 +57,7 @@ class CommentsService implements TaskServiceInterface
      *
      * @throws OptimisticLockException
      * @throws ORMException
+     *
      */
     public function save(Comments $comment): void
     {

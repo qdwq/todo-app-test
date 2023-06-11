@@ -8,7 +8,6 @@ namespace App\Entity;
 
 use App\Repository\PhotosRepository;
 use DateTime;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -19,6 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Class Photos.
  *
  * @ORM\Entity(repositoryClass=PhotosRepository::class)
+ *
  * @ORM\Table(name="Photos")
  */
 class Photos
@@ -27,7 +27,9 @@ class Photos
      * Primary key.
      *
      * @ORM\Id
+     *
      * @ORM\GeneratedValue
+     *
      * @ORM\Column(type="integer")
      */
     private ?int $id = null;
@@ -39,7 +41,7 @@ class Photos
      *
      * @Gedmo\Timestampable(on="create")
      */
-    private DateTimeInterface $createdAt;
+    private \DateTimeInterface $createdAt;
 
     /**
      * Updated at.
@@ -48,7 +50,7 @@ class Photos
      *
      * @Gedmo\Timestampable(on="update")
      */
-    private ?DateTimeInterface $updatedAt;
+    private ?\DateTimeInterface $updatedAt;
 
     /**
      * Title.
@@ -56,6 +58,7 @@ class Photos
      * @ORM\Column(type="string", length=64)
      *
      * @Assert\NotBlank
+     *
      * @Assert\Length(
      *     min="3",
      *     max="64",
@@ -69,6 +72,7 @@ class Photos
      * @ORM\Column(type="string", length=255, nullable=false)
      *
      * @Assert\NotBlank
+     *
      * @Assert\Length(
      *     min="3",
      *     max="255",
@@ -90,7 +94,9 @@ class Photos
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Galleries", inversedBy="photos")
+     *
      * @ORM\JoinColumns({
+     *
      *   @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
      * })
      */
@@ -106,7 +112,7 @@ class Photos
      */
     public function __construct()
     {
-        $this->createdAt = new DateTime();
+        $this->createdAt = new \DateTime();
         $this->comments = new ArrayCollection();
     }
 
@@ -123,9 +129,9 @@ class Photos
     /**
      * Getter for Created At.
      *
-     * @return DateTimeInterface|null Created at
+     * @return \DateTimeInterface|null Created at
      */
-    public function getCreatedAt(): ?DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -133,9 +139,9 @@ class Photos
     /**
      * Setter for Created at.
      *
-     * @param DateTimeInterface $createdAt Created at
+     * @param \DateTimeInterface $createdAt Created at
      */
-    public function setCreatedAt(DateTimeInterface $createdAt): void
+    public function setCreatedAt(\DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -143,9 +149,9 @@ class Photos
     /**
      * Getter for Updated at.
      *
-     * @return DateTimeInterface|null Updated at
+     * @return \DateTimeInterface|null Updated at
      */
-    public function getUpdatedAt(): ?DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -153,9 +159,9 @@ class Photos
     /**
      * Setter for Updated at.
      *
-     * @param DateTimeInterface $updatedAt Updated at
+     * @param \DateTimeInterface $updatedAt Updated at
      */
-    public function setUpdatedAt(DateTimeInterface $updatedAt): void
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }

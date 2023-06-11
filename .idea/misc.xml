@@ -4,36 +4,28 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="126" />
+          <option name="caretOffset" value="1827" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/composer.json" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="564" />
+          <option name="caretOffset" value="540" />
           <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/SecurityController.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/config/packages/security.yaml" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="4438" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/PhotosController.php" />
+          <option name="caretOffset" value="6" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/UserService.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
           <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/HomeController.php" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/Photos/create.html.twig" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="4500" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/GalleriesController.php" />
+          <option name="caretOffset" value="220" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/public/styles.css" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="4178" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/CommentsController.php" />
-        </OpenedFileInfo>
-        <OpenedFileInfo>
-          <option name="caretOffset" value="1043" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/UserController.php" />
+          <option name="caretOffset" value="2325" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" />
         </OpenedFileInfo>
       </list>
     </option>

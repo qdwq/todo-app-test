@@ -14,9 +14,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *
  * @ORM\Table(
  *     name="users",
  *     uniqueConstraints={
+ *
  *          @ORM\UniqueConstraint(
  *              name="email_idx",
  *              columns={"email"},
@@ -46,7 +48,9 @@ class User implements UserInterface
      * Primary key.
      *
      * @ORM\Id
+     *
      * @ORM\GeneratedValue
+     *
      * @ORM\Column(
      *     name="id",
      *     type="integer",
@@ -66,6 +70,7 @@ class User implements UserInterface
      * )
      *
      * @Assert\NotBlank
+     *
      * @Assert\Email
      */
     private ?string $email;

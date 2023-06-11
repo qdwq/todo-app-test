@@ -6,10 +6,8 @@
 
 namespace App\Service;
 
-use App\Service\TaskServiceInterface;
 use App\Entity\Photos;
 use App\Repository\PhotosRepository;
-use DateTime;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -33,7 +31,7 @@ class PhotosService implements TaskServiceInterface
      *
      * @param PhotosRepository   $photosRepository Photos repository
      * @param PaginatorInterface $paginator        paginator interface
-     * @param FileUploader       $fileUploader
+     * @param FileUploader       $fileUploader     FileUploader
      */
     public function __construct(PhotosRepository $photosRepository, PaginatorInterface $paginator, FileUploader $fileUploader)
     {
@@ -61,7 +59,7 @@ class PhotosService implements TaskServiceInterface
     /**
      * @param int $id id
      *
-     * @return Photos|null
+     * @return ?Photos
      */
     public function getOne(int $id): ?Photos
     {
@@ -71,9 +69,10 @@ class PhotosService implements TaskServiceInterface
     /**
      * @param int $id
      *
-     * @return Photos|null
-     *
      * @throws NonUniqueResultException
+     *
+     * @return ?Photos
+     *
      */
     public function getOneWithComments(int $id): ?Photos
     {
@@ -82,7 +81,6 @@ class PhotosService implements TaskServiceInterface
 
     /**
      * Save.
-     *
      * @param Photos            $photos
      * @param UploadedFile|null $file
      */
@@ -93,13 +91,12 @@ class PhotosService implements TaskServiceInterface
             $photos->setFilename($filename);
         }
 
-        $photos->setUpdatedAt(new DateTime());
+        $photos->setUpdatedAt(new \DateTime());
         $this->photosRepository->save($photos);
     }
 
     /**
      * Delete.
-     *
      * @param Photos $photos
      */
     public function delete(Photos $photos): void

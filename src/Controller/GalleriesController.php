@@ -98,7 +98,7 @@ class GalleriesController extends AbstractController
      *     name="galleries_create",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response
     {
         $galleries = new Galleries();
@@ -134,7 +134,7 @@ class GalleriesController extends AbstractController
      *     name="galleries_edit",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function edit(Request $request, Galleries $galleries): Response
     {
         $form = $this->createForm(GalleriesType::class, $galleries, ['method' => 'PUT']);
@@ -172,7 +172,7 @@ class GalleriesController extends AbstractController
      *     name="Galleries_delete",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function delete(Request $request, Galleries $galleries): Response
     {
         $form = $this->createForm(FormType::class, $galleries, ['method' => 'DELETE']);

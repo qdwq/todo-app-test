@@ -46,7 +46,7 @@ class UserController extends AbstractController
      *     name="User_edit",
      * )
      */
-    #[IsGranted("ROLE_ADMIN")]
+    #[IsGranted('ROLE_ADMIN')]
     public function edit(Request $request): Response
     {
         $user = $this->getUser();
