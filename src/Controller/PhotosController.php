@@ -10,10 +10,12 @@ use App\Entity\Photos;
 use App\Form\PhotosType;
 use App\Service\PhotosService;
 use Doctrine\ORM\NonUniqueResultException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class PhotosController.
@@ -96,8 +98,8 @@ class PhotosController extends AbstractController
      *     methods={"GET", "POST"},
      *     name="photos_create",
      * )
-     * @IsGranted("ROLE_ADMIN")
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function create(Request $request): Response
     {
         $photos = new Photos();
