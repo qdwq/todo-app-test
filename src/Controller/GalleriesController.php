@@ -10,6 +10,7 @@ use App\Entity\Galleries;
 use App\Form\GalleriesType;
 use App\Service\GalleriesService;
 use Doctrine\ORM\NonUniqueResultException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -97,10 +98,10 @@ class GalleriesController extends AbstractController
      *     name="galleries_create",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function create(Request $request): Response
     {
         $galleries = new Galleries();
-        $this->denyAccessUnlessGranted('create', $galleries);
         $form = $this->createForm(GalleriesType::class, $galleries);
         $form->handleRequest($request);
 
@@ -133,9 +134,9 @@ class GalleriesController extends AbstractController
      *     name="galleries_edit",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, Galleries $galleries): Response
     {
-        $this->denyAccessUnlessGranted('edit', $galleries);
         $form = $this->createForm(GalleriesType::class, $galleries, ['method' => 'PUT']);
         $form->handleRequest($request);
 
@@ -171,9 +172,9 @@ class GalleriesController extends AbstractController
      *     name="Galleries_delete",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Galleries $galleries): Response
     {
-        $this->denyAccessUnlessGranted('delete', $galleries);
         $form = $this->createForm(FormType::class, $galleries, ['method' => 'DELETE']);
         $form->handleRequest($request);
 

@@ -103,7 +103,6 @@ class PhotosController extends AbstractController
     public function create(Request $request): Response
     {
         $photos = new Photos();
-        $this->denyAccessUnlessGranted('edit', $photos);
         $form = $this->createForm(PhotosType::class, $photos, ['required' => true]);
         $form->handleRequest($request);
 
@@ -136,9 +135,9 @@ class PhotosController extends AbstractController
      *     name="Photos_edit",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request, Photos $photos): Response
     {
-        $this->denyAccessUnlessGranted('edit', $photos);
         $form = $this->createForm(PhotosType::class, $photos, ['method' => 'PUT', 'required' => false]);
         $form->handleRequest($request);
 
@@ -174,9 +173,9 @@ class PhotosController extends AbstractController
      *     name="Photos_delete",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Photos $photos): Response
     {
-        $this->denyAccessUnlessGranted('delete', $photos);
         $form = $this->createForm(FormType::class, $photos, ['method' => 'DELETE']);
         $form->handleRequest($request);
 

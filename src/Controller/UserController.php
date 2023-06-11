@@ -8,6 +8,7 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\Service\UserService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -45,6 +46,7 @@ class UserController extends AbstractController
      *     name="User_edit",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function edit(Request $request): Response
     {
         $user = $this->getUser();

@@ -12,6 +12,7 @@ use App\Service\CommentsService;
 use App\Service\PhotosService;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -151,9 +152,9 @@ class CommentsController extends AbstractController
      *     name="Comments_delete",
      * )
      */
+    #[IsGranted("ROLE_ADMIN")]
     public function delete(Request $request, Comments $comments): Response
     {
-        $this->denyAccessUnlessGranted('delete', $comments);
         $form = $this->createForm(FormType::class, $comments, ['method' => 'DELETE']);
         $form->handleRequest($request);
 

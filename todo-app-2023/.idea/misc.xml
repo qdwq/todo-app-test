@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="UnattendedHostPersistenceState">
+    <option name="openedFilesInfos">
+      <list>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1652" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Galleries.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1124" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/Galleries/show.html.twig" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1842" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Photos.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1939" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/composer.json" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="519" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/CommentsController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/config/routes/annotations.yaml" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="462" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/GalleriesController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="223" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/HomeController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="321" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/UserController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="2343" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/PhotosController.php" />
+        </OpenedFileInfo>
+      </list>
+    </option>
+  </component>
+</project>
