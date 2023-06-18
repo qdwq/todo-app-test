@@ -29,8 +29,9 @@ class CommentsService implements TaskServiceInterface
 
     /**
      * CommentsService constructor.
-     * @param CommentsRepository $commentsRepository
-     * @param PaginatorInterface $paginator
+     *
+     * @param CommentsRepository $commentsRepository Comments repository
+     * @param PaginatorInterface $paginator          Paginator interface
      */
     public function __construct(CommentsRepository $commentsRepository, PaginatorInterface $paginator)
     {
@@ -39,9 +40,9 @@ class CommentsService implements TaskServiceInterface
     }
 
     /**
-     * @param int $page
+     * @param int $page int
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination interface
      */
     public function createPaginatedList(int $page): PaginationInterface
     {
@@ -53,11 +54,10 @@ class CommentsService implements TaskServiceInterface
     }
 
     /**
-     * @param Comments $comment
+     * @param Comments $comment Comments
      *
      * @throws OptimisticLockException
      * @throws ORMException
-     *
      */
     public function save(Comments $comment): void
     {
@@ -65,7 +65,7 @@ class CommentsService implements TaskServiceInterface
     }
 
     /**
-     * @param Comments $comment
+     * @param Comments $comment Comments
      *
      * @throws ORMException
      * @throws OptimisticLockException
@@ -73,5 +73,15 @@ class CommentsService implements TaskServiceInterface
     public function delete(Comments $comment): void
     {
         $this->commentsRepository->delete($comment);
+    }
+
+    /**
+     * @param int $photoId Photo id
+     *
+     * @return array array
+     */
+    public function getByPhotoId(int $photoId): array
+    {
+        return $this->commentsRepository->queryByPhotoId($photoId)->getQuery()->execute();
     }
 }

@@ -9,6 +9,7 @@ namespace App\Controller;
 use App\Entity\Photos;
 use App\Form\PhotosType;
 use App\Service\PhotosService;
+use App\Service\CommentsService;
 use Doctrine\ORM\NonUniqueResultException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,20 +21,25 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class PhotosController.
  *
+ * @property $commentsService
+ *
  * @Route("/Photos")
  */
 class PhotosController extends AbstractController
 {
     private PhotosService $photosService;
+    private CommentsService $commentsService;
 
     /**
      * PhotosController constructor.
      *
-     * @param PhotosService $photosService Photos service
+     * @param PhotosService   $photosService   Photos service
+     * @param CommentsService $commentsService Comments service
      */
-    public function __construct(PhotosService $photosService)
+    public function __construct(PhotosService $photosService, CommentsService $commentsService)
     {
         $this->photosService = $photosService;
+        $this->commentsService = $commentsService;
     }
 
     /**
@@ -78,11 +84,12 @@ class PhotosController extends AbstractController
      */
     public function show(int $id): Response
     {
-        $photos = $this->photosService->getOneWithComments($id);
+        $photos = $this->photosService->getOne($id);
+        $comments = $this->commentsService->getByPhotoId($photos->getId());
 
         return $this->render(
             'Photos/show.html.twig',
-            ['Photos' => $photos]
+            ['Photos' => $photos, 'Comments' => $comments]
         );
     }
 

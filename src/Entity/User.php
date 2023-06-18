@@ -6,7 +6,6 @@
 
 namespace App\Entity;
 
-use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -88,7 +87,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="date", nullable=true)
      */
-    private ?DateTime $birthYear = null;
+    private ?\DateTime $birthYear = null;
 
     /**
      * Roles.
@@ -199,7 +198,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * Getter for the First Name.
+     *
+     * @return string FirstName
      */
     public function getFirstName(): string
     {
@@ -207,9 +208,11 @@ class User implements UserInterface
     }
 
     /**
-     * @param string|null $firstName
+     * Setter for the First Name.
      *
-     * @return void
+     * @param string|null $firstName FirstName
+     *
+     * @return void FirstName
      */
     public function setFirstName(?string $firstName): void
     {
@@ -217,7 +220,9 @@ class User implements UserInterface
     }
 
     /**
-     * @return string
+     * Getter for Last Name.
+     *
+     * @return string LastName
      */
     public function getLastName(): string
     {
@@ -225,9 +230,11 @@ class User implements UserInterface
     }
 
     /**
-     * @param string|null $lastName
+     * Setter for Last Name.
      *
-     * @return void
+     * @param string|null $lastName LastName
+     *
+     * @return void LastName
      */
     public function setLastName(?string $lastName): void
     {
@@ -235,19 +242,23 @@ class User implements UserInterface
     }
 
     /**
-     * @return DateTime|null
+     * Getter for the Birth Year.
+     *
+     * @return \DateTime|null BirthYear
      */
-    public function getBirthYear(): ?DateTime
+    public function getBirthYear(): ?\DateTime
     {
         return $this->birthYear;
     }
 
     /**
-     * @param DateTime|null $birthYear
+     * Setter for the Birth Year.
      *
-     * @return void
+     * @param \DateTime|null $birthYear BirthYear
+     *
+     * @return void BirthYear
      */
-    public function setBirthYear(?DateTime $birthYear): void
+    public function setBirthYear(?\DateTime $birthYear): void
     {
         $this->birthYear = $birthYear;
     }

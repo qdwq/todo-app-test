@@ -36,7 +36,7 @@ class PhotosRepository extends ServiceEntityRepository
     /**
      * PhotosRepository constructor.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -55,17 +55,16 @@ class PhotosRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param int $id
+     * @param int $id id
      *
-     * @return Photos|null
+     * @return ?Photos Photos
      *
      * @throws NonUniqueResultException
      */
-    public function getOneWithComments(int $id): ?Photos
+    public function getOneById(int $id): ?Photos
     {
         $qb = $this->createQueryBuilder('Photos')
-            ->select('Photos', 'comments')
-            ->leftJoin('Photos.comments', 'comments')
+            ->select('Photos')
             ->where('Photos.id = :id')
             ->setParameter('id', $id)
         ;
@@ -76,7 +75,7 @@ class PhotosRepository extends ServiceEntityRepository
     /**
      * Save record.
      *
-     * @param Photos $photos
+     * @param Photos $photos Photos
      */
     public function save(Photos $photos): void
     {
@@ -87,7 +86,7 @@ class PhotosRepository extends ServiceEntityRepository
     /**
      * Delete record.
      *
-     * @param Photos $photos
+     * @param Photos $photos Photos
      */
     public function delete(Photos $photos): void
     {
@@ -102,6 +101,8 @@ class PhotosRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(): QueryBuilder
     {
-        return null ?? $this->createQueryBuilder('Photos');
+        return null ?? $this->createQueryBuilder('Photos')
+                           ->addSelect('Galleries')
+                           ->join('Photos.gallery', 'Galleries');
     }
 }

@@ -36,7 +36,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * GalleriesRepository constructor.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -46,7 +46,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * Save record.
      *
-     * @param Galleries $galleries
+     * @param Galleries $galleries Galleries
      */
     public function save(Galleries $galleries): void
     {
@@ -57,7 +57,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * Delete record.
      *
-     * @param Galleries $galleries
+     * @param Galleries $galleries Galleries
      */
     public function delete(Galleries $galleries): void
     {
@@ -68,7 +68,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * Query all records.
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
@@ -79,7 +79,7 @@ class GalleriesRepository extends ServiceEntityRepository
     /**
      * Get or create new query builder.
      *
-     * @param int|null $id
+     * @param int|null $id id
      *
      * @return float|int|mixed|string|null
      *

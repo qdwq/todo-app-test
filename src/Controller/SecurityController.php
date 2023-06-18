@@ -21,7 +21,7 @@ class SecurityController extends AbstractController
      *
      * @param AuthenticationUtils $authenticationUtils Authentications Utils
      *
-     * @return Response
+     * @return Response Authentication utils
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -39,7 +39,6 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/logout", name="app_logout")
-     *
      */
     public function logout()
     {

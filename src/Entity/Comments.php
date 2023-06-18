@@ -8,6 +8,7 @@ namespace App\Entity;
 
 use App\Repository\CommentsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
@@ -27,22 +28,48 @@ class Comments
     private ?int $id = null;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * E-mail.
+     *
+     * @ORM\Column(
+     *     type="string",
+     *     length=180,
+     *     unique=true,
+     * )
+     *
+     * @Assert\NotBlank
+     *
+     * @Assert\Email
      */
     private ?string $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank
+     *
+     * @Assert\Length (
+     *     min="1",
+     *     max="64",
+     * )
      */
     private ?string $nick;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * Text.
+     *
+     * @ORM\Column(type="string", length=255, nullable=false)
+     *
+     * @Assert\NotBlank
+     *
+     * @Assert\Length(
+     *     min="3",
+     *     max="255",
+     * )
      */
     private ?string $text;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Photos", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Photos", fetch="EXTRA_LAZY")
      *
      * @ORM\JoinColumns({
      *
@@ -52,7 +79,9 @@ class Comments
     private ?Photos $photos;
 
     /**
-     * @return int|null
+     * Get Id.
+     *
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -60,7 +89,9 @@ class Comments
     }
 
     /**
-     * @return string|null
+     * Get email.
+     *
+     * @return string|null Email
      */
     public function getEmail(): ?string
     {
@@ -80,7 +111,9 @@ class Comments
     }
 
     /**
-     * @return string|null
+     * Get Nickname.
+     *
+     * @return string|null Nick
      */
     public function getNick(): ?string
     {
@@ -88,9 +121,11 @@ class Comments
     }
 
     /**
+     * Set Nickname.
+     *
      * @param string $nick Nick
      *
-     * @return $this
+     * @return $this Nick
      */
     public function setNick(string $nick): self
     {
@@ -100,7 +135,9 @@ class Comments
     }
 
     /**
-     * @return string|null
+     * Get Text.
+     *
+     * @return string|null Text
      */
     public function getText(): ?string
     {
@@ -108,6 +145,8 @@ class Comments
     }
 
     /**
+     * Set Text.
+     *
      * @param string $text Text
      *
      * @return $this
@@ -120,7 +159,9 @@ class Comments
     }
 
     /**
-     * @return Photos|null
+     * Get Photos.
+     *
+     * @return Photos|null Photos
      */
     public function getPhotos(): ?Photos
     {
@@ -128,9 +169,11 @@ class Comments
     }
 
     /**
+     * Set Photos.
+     *
      * @param Photos|null $photos Photos
      *
-     * @return $this
+     * @return $this Photos
      */
     public function setPhotos(?Photos $photos): self
     {

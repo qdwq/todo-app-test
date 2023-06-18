@@ -17,9 +17,8 @@ use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
 /**
- * Class Kernel
+ * Class Kernel.
  */
-
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
@@ -27,7 +26,9 @@ class Kernel extends BaseKernel
     private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
     /**
-     * @return iterable
+     * Register bundles.
+     *
+     * @return iterable Content
      */
     public function registerBundles(): iterable
     {
@@ -40,7 +41,9 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @return string
+     * Get Project.
+     *
+     * @return string Project path
      */
     public function getProjectDir(): string
     {
@@ -48,10 +51,10 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @param ContainerBuilder $container
-     * @param LoaderInterface  $loader
+     * Configure containers.
      *
-     * @return void
+     * @param ContainerBuilder $container Container Builder
+     * @param LoaderInterface  $loader    Loader interface
      *
      * @throws \Exception
      */
@@ -69,9 +72,9 @@ class Kernel extends BaseKernel
     }
 
     /**
-     * @param RouteCollectionBuilder $routes
+     * Configure routes.
      *
-     * @return void
+     * @param RouteCollectionBuilder $routes Route Collection Builder
      *
      * @throws \Symfony\Component\Config\Exception\LoaderLoadException
      */

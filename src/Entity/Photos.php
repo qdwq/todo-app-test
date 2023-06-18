@@ -7,9 +7,6 @@
 namespace App\Entity;
 
 use App\Repository\PhotosRepository;
-use DateTime;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -93,7 +90,7 @@ class Photos
     private ?string $filename;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Galleries", inversedBy="photos")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Galleries", inversedBy="photos", fetch="EXTRA_LAZY")
      *
      * @ORM\JoinColumns({
      *
@@ -103,17 +100,11 @@ class Photos
     private ?Galleries $gallery;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comments", mappedBy="photos", cascade={"remove"})
-     */
-    private ?object $comments;
-
-    /**
      * Photos constructor.
      */
     public function __construct()
     {
         $this->createdAt = new \DateTime();
-        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -207,7 +198,9 @@ class Photos
     }
 
     /**
-     * @return Galleries|null
+     * Getter for the Galleries.
+     *
+     * @return Galleries|null Galleries
      */
     public function getGalleries(): ?Galleries
     {
@@ -215,9 +208,11 @@ class Photos
     }
 
     /**
-     * @param Galleries|null $gallery
+     * Setter for the Galleries.
      *
-     * @return void
+     * @param Galleries|null $gallery Galleries
+     *
+     * @return void Galleries
      */
     public function setGalleries(?Galleries $gallery): void
     {
@@ -225,7 +220,9 @@ class Photos
     }
 
     /**
-     * @return string
+     * Getter for the Filename.
+     *
+     * @return string Filename
      */
     public function getFilename(): string
     {
@@ -233,52 +230,14 @@ class Photos
     }
 
     /**
-     * @param string $filename
+     * Setter for the Filename.
      *
-     * @return void
+     * @param string $filename Filename
+     *
+     * @return void Filename
      */
     public function setFilename(string $filename): void
     {
         $this->filename = $filename;
-    }
-
-    /**
-     * @return Collection
-     */
-    public function getComments(): Collection
-    {
-        return $this->comments;
-    }
-
-    /**
-     * @param Comments $comment
-     *
-     * @return $this
-     */
-    public function addComment(Comments $comment): self
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments[] = $comment;
-            $comment->setPhotos($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param Comments $comment
-     *
-     * @return $this
-     */
-    public function removeComment(Comments $comment): self
-    {
-        if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getPhotos() === $this) {
-                $comment->setPhotos(null);
-            }
-        }
-
-        return $this;
     }
 }

@@ -21,11 +21,11 @@
             <dt>{{ 'label_text'|trans }}</dt>
             <dd>{{  Photos.text }}</dd>
         </dl>
-        {% if Photos.Comments|length %}
+        {% if Comments|length %}
 
             <h3>Komentarze</h3>
             <div class="row justify-content-around">
-                {% for Comment in Photos.Comments %}
+                {% for Comment in Comments %}
                     <div style="border: 1px solid #000000;">
                         <dl class="dl-horizontal">
                             <dt>{{ 'label_nick'|trans }}</dt>

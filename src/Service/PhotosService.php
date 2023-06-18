@@ -8,7 +8,6 @@ namespace App\Service;
 
 use App\Entity\Photos;
 use App\Repository\PhotosRepository;
-use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -43,9 +42,9 @@ class PhotosService implements TaskServiceInterface
     /**
      * CreatePaginatedList.
      *
-     * @param int $page
+     * @param int $page Page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination interface
      */
     public function createPaginatedList(int $page): PaginationInterface
     {
@@ -67,22 +66,10 @@ class PhotosService implements TaskServiceInterface
     }
 
     /**
-     * @param int $id
-     *
-     * @throws NonUniqueResultException
-     *
-     * @return ?Photos
-     *
-     */
-    public function getOneWithComments(int $id): ?Photos
-    {
-        return $this->photosRepository->getOneWithComments($id);
-    }
-
-    /**
      * Save.
-     * @param Photos            $photos
-     * @param UploadedFile|null $file
+     *
+     * @param Photos            $photos Photos
+     * @param UploadedFile|null $file   Uploaded file
      */
     public function save(Photos $photos, UploadedFile $file = null): void
     {
@@ -97,7 +84,8 @@ class PhotosService implements TaskServiceInterface
 
     /**
      * Delete.
-     * @param Photos $photos
+     *
+     * @param Photos $photos Photos
      */
     public function delete(Photos $photos): void
     {

@@ -33,8 +33,9 @@ class UserService
 
     /**
      * Save.
-     * @param User        $user
-     * @param string|null $plainPassword
+     *
+     * @param User        $user          User
+     * @param string|null $plainPassword Password
      */
     public function save(User $user, ?string $plainPassword): void
     {

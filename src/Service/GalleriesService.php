@@ -76,11 +76,13 @@ class GalleriesService implements TaskServiceInterface
     }
 
     /**
-     * @param int $id
+     * Get photos.
      *
-     * @throws NonUniqueResultException
+     * @param int $id id
      *
      * @return ?Galleries
+     *
+     * @throws NonUniqueResultException
      */
     public function getOneWithPhotos(int $id): ?Galleries
     {

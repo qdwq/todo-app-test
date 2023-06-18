@@ -4,28 +4,48 @@
     <option name="openedFilesInfos">
       <list>
         <OpenedFileInfo>
-          <option name="caretOffset" value="1827" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/composer.json" />
+          <option name="caretOffset" value="1730" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Repository/PhotosRepository.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="540" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/SecurityController.php" />
+          <option name="caretOffset" value="1034" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/Photos/show.html.twig" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="6" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/UserService.php" />
+          <option name="caretOffset" value="881" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/PhotosController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1997" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/CommentsService.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="1154" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Service/PhotosService.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
           <option name="caretOffset" value="0" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/Photos/create.html.twig" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/.env" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="220" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/public/styles.css" />
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Entity/Comments.php" />
         </OpenedFileInfo>
         <OpenedFileInfo>
-          <option name="caretOffset" value="2325" />
-          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" />
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Controller/CommentsController.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="2644" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/src/Repository/CommentsRepository.php" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/templates/Photos/index.html.twig" />
+        </OpenedFileInfo>
+        <OpenedFileInfo>
+          <option name="caretOffset" value="0" />
+          <option name="fileUrl" value="file://$PROJECT_DIR$/.gitignore" />
         </OpenedFileInfo>
       </list>
     </option>

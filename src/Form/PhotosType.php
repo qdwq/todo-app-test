@@ -91,7 +91,7 @@ class PhotosType extends AbstractType
     /**
      * Configures the options for this type.
      *
-     * @param OptionsResolver $resolver
+     * @param OptionsResolver $resolver Option resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

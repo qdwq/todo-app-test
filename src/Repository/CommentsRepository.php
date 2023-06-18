@@ -84,6 +84,22 @@ class CommentsRepository extends ServiceEntityRepository
     }
 
     /**
+     * Query by photo id.
+     *
+     * @param int $photoId Photo id
+     *
+     * @return \Doctrine\ORM\QueryBuilder Query builder
+     */
+    public function queryByPhotoId(int $photoId): QueryBuilder
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->select('Comments')
+            ->Where('Comments.photos = :photo_id')
+            ->orderBy('Comments.updatedAt', ' DESC')
+            ->setParameter('photo_id', $photoId);
+    }
+
+    /**
      * Get or create new query builder.
      *
      * @param \Doctrine\ORM\QueryBuilder|null $queryBuilder Query builder

@@ -80,7 +80,9 @@ class Galleries
     private Collection $photos;
 
     /**
-     * @return Collection|null
+     * Get Photos.
+     *
+     * @return Collection|null Photos
      */
     public function getPhotos(): ?Collection
     {
@@ -116,6 +118,7 @@ class Galleries
 
     /**
      * Get Id.
+     *
      * @return ?int
      */
     public function getId(): ?int
@@ -194,9 +197,11 @@ class Galleries
     }
 
     /**
-     * @param string $code
+     * Set Code.
      *
-     * @return $this
+     * @param string $code Code
+     *
+     * @return $this Code
      */
     public function setCode(string $code): self
     {
